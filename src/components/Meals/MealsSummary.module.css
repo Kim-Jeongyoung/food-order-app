@@ -5,8 +5,14 @@
   margin: auto;
   margin-top: -10rem;
   position: relative;
-  background-color: #383838;
-  color: white;
+  background-color: #fff;
+  /* color: #fbd786; */
+  background: -webkit-linear-gradient(
+    rgb(255, 254, 255),
+    rgba(200, 212, 197, 0.774) 80%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   border-radius: 14px;
   padding: 1rem;
   box-shadow: 0 1px 18px 10px rgba(0, 0, 0, 0.25);
