@@ -8,8 +8,8 @@
   background-color: #fff;
   /* color: #fbd786; */
   background: -webkit-linear-gradient(
-    rgb(255, 254, 255),
-    rgba(200, 212, 197, 0.774) 80%
+    rgb(255, 56, 6),
+    /* rgba(200, 212, 197, 0.774) 80% */
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
