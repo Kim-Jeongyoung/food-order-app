@@ -1,6 +1,7 @@
-import React from 'react'
+import React from 'react';
 import classes from './Input.module.css';
 
+// ref 사용하기 위해서 React.forwardRef 사용
 const Input = React.forwardRef((props, ref) => {
   return (
     <div className={classes.input}>
@@ -8,6 +9,6 @@ const Input = React.forwardRef((props, ref) => {
       <input ref={ref} {...props.input} />
     </div>
   );
-};
+});
 
 export default Input;

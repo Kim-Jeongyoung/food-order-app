@@ -33,7 +33,7 @@ const DUMMY_MEALS = [
   },
 ];
 
-const AvailanleMeals = () => {
+const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => (
     <MealItem
       key={meal.id}
@@ -53,4 +53,4 @@ const AvailanleMeals = () => {
   );
 };
 
-export default AvailanleMeals;
+export default AvailableMeals;
