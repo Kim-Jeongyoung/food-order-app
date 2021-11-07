@@ -4,6 +4,7 @@ import Modal from '../UI/Modal';
 import CartItem from './CartItem';
 import classes from './Cart.module.css';
 import CartContext from '../../store/cart-context';
+import CartProvider from '../../store/CartProvider';
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -11,9 +12,14 @@ const Cart = (props) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {};
+  // Wire with CartProvider.js cartitem을 remove 할 수 있다.
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id);
+  };
 
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 });
+  };
 
   const CartItems = (
     <ul className={classes['cart-items']}>
