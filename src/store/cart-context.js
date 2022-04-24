@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const CartContext = React.createContext({
   items: [],
@@ -8,3 +8,6 @@ const CartContext = React.createContext({
 });
 
 export default CartContext;
+
+// initialize this context with default data
+// which will not actually be used

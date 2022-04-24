@@ -5,3 +5,6 @@ const Card = (props) => {
 };
 
 export default Card;
+
+// This is a wrapper component, whcih provides some HTML structure and some CSS code
+//     
