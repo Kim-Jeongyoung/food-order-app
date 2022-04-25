@@ -11,3 +11,4 @@ export default CartContext;
 
 // initialize this context with default data
 // which will not actually be used
+// will give auto complition later

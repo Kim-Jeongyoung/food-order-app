@@ -8,8 +8,12 @@ const MealItemForm = (props) => {
   const amountInputRef = useRef();
 
   const submitHandler = (event) => {
+    // browser default of reloading the page is prevented
     event.preventDefault();
-
+    // it's always stored current for refs created with useRef.value
+    // Becasue amountInputRef.current will point at the input element
+    // which is stored in that ref in the end
+    // this value is always string
     const enteredAmount = amountInputRef.current.value;
     const enteredAmountNumber = +enteredAmount;
 
@@ -21,7 +25,9 @@ const MealItemForm = (props) => {
       setAmountIsValid(false);
       return;
     }
-
+    // forward enteredAmountNumber to MelaItem
+    // expect to get throgh props to parse the entered and validated Number
+    // to that function
     props.onAddToCart(enteredAmountNumber);
   };
 
@@ -32,7 +38,7 @@ const MealItemForm = (props) => {
         label="Amount"
         input={{
           id: "amount_" + props.id,
-          // #138 
+          // #138
           // id: 'amount'
           type: "number",
           min: "1",
@@ -52,3 +58,10 @@ const MealItemForm = (props) => {
 };
 
 export default MealItemForm;
+
+// two way binding
+// for input we don't just listen to changes
+// but we can also pass a new value back into the input
+// we can reset or change the input programmatically
+// using default attribute value: set the internal value property
+// then we can set into a new value

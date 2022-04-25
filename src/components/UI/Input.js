@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Input.module.css";
-
+// Input의 경우 custom component이기 때문에
 // ref 사용하기 위해서 React.forwardRef 사용
 const Input = React.forwardRef((props, ref) => {
   return (
