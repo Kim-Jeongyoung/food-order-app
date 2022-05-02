@@ -1,42 +1,37 @@
+import { useEffect, useState } from "react";
 import Card from "../UI/Card.js";
 import MealItem from "./MealItem/MealItem";
 import classes from "./AvailableMeals.module.css";
 
-const DUMMY_MEALS = [
-  {
-    id: "m1",
-    name: "Green Papaya Sald",
-    description:
-      "Shredded green papaya tossed with Thai basil & served with dried sesame beef. Can be made with tofu or shrimp.",
-    price: 22.99,
-  },
-  {
-    id: "m2",
-    name: "Avocado & Kale Salad",
-    description:
-      "Chopped kale, shaved Brussels sprouts, Parmesan cheese, sliced almonds, avocado; served with almond-tahini dressing.",
-    price: 16.5,
-  },
-  {
-    id: "m3",
-    name: "Basil Tofu",
-    description:
-      "Crisp tofu wok-tossed with garlic & basil in a seasoned soy sauce; finished with crisp basil.",
-    price: 15.99,
-  },
-  {
-    id: "m4",
-    name: "Lemongrass Sea Bass",
-    description:
-      "Lemongrass & garlic sea bass served with a cold mango & cilantro glass noodle salad.",
-    price: 36.25,
-  },
-];
-
 const AvailableMeals = () => {
-  const mealsList = DUMMY_MEALS.map((meal) => (
+  const [meals, setMeals] = useState([]);
+
+  useEffect(() => {
+    const fetchMeals = async () => {
+      const response = await fetch(
+        "https://food-order-81e9d-default-rtdb.firebaseio.com/meals.json"
+      );
+      const responseData = await response.json();
+
+      const loadedMeals = [];
+
+      for (const key in responseData) {
+        loadedMeals.push({
+          id: key,
+          name: responseData[key].name,
+          description: responseData[key].description,
+          price: responseData[key].price,
+        });
+      }
+
+      setMeals(loadedMeals);
+    };
+    fetchMeals();
+  }, []);
+
+  const mealsList = meals.map((meal) => (
     <MealItem
-      id={meal.name}
+      id={meal.id}
       // id={meal.id}
       key={meal.id}
       name={meal.name}
