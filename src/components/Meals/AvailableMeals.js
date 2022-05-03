@@ -5,14 +5,15 @@ import classes from "./AvailableMeals.module.css";
 
 const AvailableMeals = () => {
   const [meals, setMeals] = useState([]);
-
+  const [isLoading, setIsLoading] = useState(true);
+  console.log(meals);
   useEffect(() => {
     const fetchMeals = async () => {
       const response = await fetch(
         "https://food-order-81e9d-default-rtdb.firebaseio.com/meals.json"
       );
       const responseData = await response.json();
-
+      console.log(responseData);
       const loadedMeals = [];
 
       for (const key in responseData) {
@@ -25,10 +26,18 @@ const AvailableMeals = () => {
       }
 
       setMeals(loadedMeals);
+      setIsLoading(false);
     };
     fetchMeals();
   }, []);
 
+  if (isLoading) {
+    return (
+      <section className={classes.MealsLoading}>
+        <p>Loading ...</p>
+      </section>
+    );
+  }
   const mealsList = meals.map((meal) => (
     <MealItem
       id={meal.id}
