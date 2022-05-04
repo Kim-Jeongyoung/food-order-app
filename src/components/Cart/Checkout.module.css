@@ -44,14 +44,14 @@
 }
 
 .actions .submit {
-  border: 1px solid #5a1a01;
-  background-color: #5a1a01;
+  background-color: #12c2e9;
+  border-color: #076074;
   color: white;
 }
 
 .actions .submit:hover,
 .actions .submit:active {
-  background-color: #7a2706;
+  background-color: #1fc6d8;
 }
 
 .invalid label {
